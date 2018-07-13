@@ -3,7 +3,7 @@ class MemesController < ApplicationController
   before_action :set_meme, only: [:show, :update, :destroy]
 
   def index
-    @memes = Memes.all
+    @memes = Meme.all
     render json: @memes
   end
 
@@ -40,7 +40,7 @@ class MemesController < ApplicationController
   end
 
   def meme_params
-    params.require(:meme).permit(:title, :git_text, :user_id)
+    params.require(:meme).permit(:title, :url, :user_id)
   end
 
 end
